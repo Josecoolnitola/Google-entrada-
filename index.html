@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Animada</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      background-color: #0f172a;
+      overflow: hidden;
+      color: white;
+    }
+
+    /* Luces de fondo en movimiento */
+    .luz-1 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(236, 72, 153, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
+      border-radius: 50%;
+      top: 10%;
+      left: 10%;
+      animation: moverEsfera 6s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    .luz-2 {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.7) 0%, rgba(0, 0, 0, 0) 70%);
+      border-radius: 50%;
+      bottom: 5%;
+      right: 5%;
+      animation: moverEsfera2 8s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes moverEsfera {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(250px, 150px) scale(1.3); }
+    }
+
+    @keyframes moverEsfera2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-300px, -200px) scale(1.2); }
+    }
+
+    /* Animación flotante para el contenido */
+    @keyframes flotarContenido {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      animation: flotarContenido 4s ease-in-out infinite;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 1rem 2.5rem;
+      background: white;
+      color: #0f172a;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="luz-1"></div>
+    <div class="luz-2"></div>
+    
+    <div class="hero-content">
+      <h1>¡Animación en Movimiento!</h1>
+      <p>Esta sección Hero tiene animación continua en el fondo, en las luces y en el texto principal.</p>
+      <!-- Cambia 'https://www.google.com' por el enlace que necesites -->
+      <a href="https://www.google.com" target="_blank" class="btn">Probar Botón</a>
+    </div>
+  </section>
+
+</body>
+</html>
